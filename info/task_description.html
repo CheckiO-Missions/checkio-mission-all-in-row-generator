@@ -1,12 +1,14 @@
 <img class="for_info_only half" src="{{MEDIA}}title.png" style="float:left;max-height: 400px">
-<p>
+
+<p style="text-align: justify;">
     Nicola likes to categorize all sorts of things.
     He categorized a series of numbers and as the result of his efforts,
     a simple sequence of numbers became a deeply-nested list.
     Sophia and Stephan don't really understand his organization and need to figure out what it all means.
     They need your help to understand Nikolas crazy list.
 </p>
-<p>
+
+<p style="text-align: justify;">
     There is a list which contains integers or
     other nested lists which may contain yet more lists and integers which then… you get the idea.
     You should put all of the integer values into one flat list.
@@ -14,41 +16,30 @@
 In this mission you should use the 'yield' to make your function a generator.
 </p>
 
-<p>
+<p style="text-align: justify;">
     We need to hide this program from Nikola by keeping it small and easy to hide.
     Because of this, <strong>your code should be shorter than 140 characters (with whitespaces)</strong>.
 </p>
 
-<p><strong>Input data:</strong> A nested list with integers.</p>
+<p><strong>Input:</strong> A nested <span translate="repeat">{% if is_js %}array{% else %}list{% endif %}</span> with integers (<span translate="no">{% if is_js %}number{% else %}int{% endif %}</span>).</p>
 
-<p><strong>Output data:</strong> The one-dimensional list with integers.</p>
+<p><strong>Output:</strong> The one-dimensional <span translate="no">{% if is_js %}array{% else %}list{% endif %}</span> with integers.</p>
 
-<p><strong>Example:<br/></strong></p>
+<p><strong>Examples:<br/></strong></p>
 
-{% if interpreter.slug == "js-node" %}
-<pre class="brush: python">flatList([1, 2, 3]) == [1, 2, 3]
-flatList([1, [2, 2, 2], 4]) == [1, 2, 2, 2, 4]
-flatList([[[2]], [4, [5, 6, [6], 6, 6, 6], 7]]) == [2, 4, 5, 6, 6, 6, 6, 6, 7]
-flatList([-1, [1, [-2], 1], -1]) == [-1, 1, -2, 1, -1]
-</pre>
-
-{% else %}
-<pre class="brush: python">flat_list([1, 2, 3]) == [1, 2, 3]
-flat_list([1, [2, 2, 2], 4]) == [1, 2, 2, 2, 4]
-flat_list([[[2]], [4, [5, 6, [6], 6, 6, 6], 7]]) == [2, 4, 5, 6, 6, 6, 6, 6, 7]
-flat_list([-1, [1, [-2], 1], -1]) == [-1, 1, -2, 1, -1]
-</pre>
-
-{% endif %}
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
 
 <p class="for_info_only">
-    <strong>How it is used: </strong>
+    <strong>How it is used:</strong>
     This concept is useful for parsing and analyzing files with complex structures and
     the task challenges your creativity in writing short code.
 </p>
 
 <p>
-    <strong>Precondition: </strong> 0 &le; |array| &le; 100<br>
-    &forall; x ∈ array : -2<sup>32</sup> < x < 2<sup>32</sup> or x is a list<br>
-    depth < 10
+    <strong>Preconditions:</strong>
+    <ul>
+        <li>0 &le; |array| &le; 100;</li>
+        <li>&forall; x ∈ array : -2<sup>32</sup> < x < 2<sup>32</sup> or x is a list;</li>
+        <li>depth < 10.</li>
+    </ul>
 </p>
